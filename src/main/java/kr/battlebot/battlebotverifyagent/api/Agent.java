@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class Agent {
-    public static String baseURL = "http://localhost:3001";
+    public static String baseURL = "https://api.battlebot.kr";
     public boolean checkOnline() {
         try {
             URL url = new URL(baseURL);

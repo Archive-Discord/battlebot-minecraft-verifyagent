@@ -36,6 +36,7 @@ public class RSAIO {
         out.write(Base64.getEncoder().encodeToString(publicSpec.getEncoded())
                 .getBytes());
         out.close();
+        BattlebotVerifyAgent.publicKey = Base64.getEncoder().encodeToString(publicSpec.getEncoded());
 
         // Store the private key.
         PKCS8EncodedKeySpec privateSpec = new PKCS8EncodedKeySpec(
