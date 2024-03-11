@@ -1,0 +1,25 @@
+version: 1
+
+# 채팅 응답 메시지 접두사
+prefix: [Battlebot]
+listener_folder: plugins/BattlebotVerifyAgent/listeners
+
+receiver:
+  host: localhost
+  port: 8722
+
+  # 인증 완료시 실행 명령어 (콘솔 실행)
+  command:
+    - "give %player% minecraft:diamond"
+
+  # 인증 완료시 전송될 메시지
+  message:
+    # 서버 전체
+    broadcast:
+      - "&e%player%님이 디스코드 인증을 완료하였습니다."
+      - "&e%player%님이 인증을 완료하였습니다."
+
+    # 플레이어
+    player:
+      - "&e디스코드 인증을 완료하였습니다."
+      - "&e인증을 완료하였습니다."

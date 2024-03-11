@@ -1,0 +1,14 @@
+name: BattlebotVerifyAgent
+version: '${project.version}'
+main: kr.battlebot.battlebotverifyagent.BattlebotVerifyAgent
+api-version: '1.20'
+prefix: Battlebot
+description: "Battlebot Verify Agent"
+website: https://battlebot.kr
+commands:
+  battlebot:
+    description: Battlebot Verify Agent Command
+  디스코드인증:
+    description: Battlebot Verify In Discord
+  verifydiscord:
+    description: Battlebot Verify In Discord

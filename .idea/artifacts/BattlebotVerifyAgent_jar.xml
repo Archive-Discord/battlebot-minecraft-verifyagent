@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BattlebotVerifyAgent:jar">
+    <output-path>$PROJECT_DIR$/../test-server/plugins</output-path>
+    <root id="archive" name="BattlebotVerifyAgent.jar">
+      <element id="module-output" name="BattlebotVerifyAgent" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/junit/junit/4.10/junit-4.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.3.1" />
+    </root>
+  </artifact>
+</component>
