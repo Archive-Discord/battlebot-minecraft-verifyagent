@@ -47,7 +47,7 @@ jobs:
       - name: Rename package
         run: |
           mkdir releases
-          mv target/verifyagent-${VER_TAG:1}.jar releases/verifyagent-${VER_TAG:1}-mc${MC_VERSION}.jar
+          mv target/BattlebotVerify-${VER_TAG:1}.jar releases/verifyagent-${VER_TAG:1}-mc${MC_VERSION}.jar
           test $UNSUPPORTED == "true" && mv releases/verifyagent-${VER_TAG:1}-mc${MC_VERSION}.jar releases/verifyagent-${VER_TAG:1}-mc${MC_VERSION}-unsupported.jar || exit 0
         env:
           VER_TAG: ${{ github.event.release.tag_name }}
