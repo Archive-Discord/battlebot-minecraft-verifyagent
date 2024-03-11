@@ -36,6 +36,7 @@ jobs:
           cd ..
       - name: Change target version to ${{ matrix.mc-version }}
         run: |
+          chmod +x ./.github/workflow-files/change-ver.sh
           ./.github/workflow-files/change-ver.sh ${{ matrix.mc-version }}
       - name: Update version of maven file to ${{ github.event.release.tag_name }}
         run: mvn versions:set -DnewVersion=${VER_TAG:1}
