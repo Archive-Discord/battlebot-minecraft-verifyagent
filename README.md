@@ -75,3 +75,6 @@ public class VerifyListener implements VerifyListener {
 javac -cp battlebot-verify-agent.jar VerifyListener.java
 ```
 
+## License
+해당 서비스는 [votifier](https://github.com/vexsoftware/votifier) 서비스의 일부를 참고하였습니다.  
+따라서, 코드 복제 또는 사용 시 GPL 라이선스에 따라 코드의 소스의 공개 및 라이선스 표기 의무가 있습니다.
