@@ -16,11 +16,20 @@ jobs:
       matrix:
         include:
           - java-version: [17]
-            mc-version: [1.20.2, 1.19.2, 1.18.2, 1.17.1]
-            unsupported: [false]
-          - java-version: [21]
+            mc-version: 1.20.2
+            unsupported: false
+          - java-version: [17]
+            mc-version: 1.19.2
+            unsupported: false
+          - java-version: [17]
+            mc-version: 1.18.2
+            unsupported: false
+          - java-version: [17]
+            mc-version: 1.17.1
+            unsupported: false
+          - java-version: [21, 22]
             mc-version: 1.21
-            unsupported: [false]
+            unsupported: false
 
     steps:
       - uses: actions/checkout@v2
