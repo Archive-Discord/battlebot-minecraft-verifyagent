@@ -14,21 +14,25 @@ jobs:
 
     strategy:
       matrix:
+        mc-version: [1.21, 1.20.2, 1.19.2, 1.18.2, 1.17.1]
         include:
-          - java-version: [17]
-            mc-version: 1.20.2
+          - mc-version: 1.21
+            java-version: 21
             unsupported: false
-          - java-version: [17]
-            mc-version: 1.19.2
+          - mc-version: 1.21
+            java-version: 22
             unsupported: false
-          - java-version: [17]
-            mc-version: 1.18.2
+          - mc-version: 1.20.2
+            java-version: 17
             unsupported: false
-          - java-version: [17]
-            mc-version: 1.17.1
+          - mc-version: 1.19.2
+            java-version: 17
             unsupported: false
-          - java-version: [21, 22]
-            mc-version: 1.21
+          - mc-version: 1.18.2
+            java-version: 17
+            unsupported: false
+          - mc-version: 1.17.1
+            java-version: 17
             unsupported: false
 
     steps:
