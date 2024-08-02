@@ -1,11 +1,10 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
-
-name: Release
+name: Release and PR Build Test
 
 on:
   release:
-    types: [ created ]
+    types: [created]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   build:
@@ -15,10 +14,26 @@ jobs:
 
     strategy:
       matrix:
-        java-version: [17]
-        mc-version: [1.20.2, 1.19.2, 1.18.2, 1.17.1]
-        unsupported: [false]
-
+        mc-version: [1.21, 1.20.2, 1.19.2, 1.18.2, 1.17.1]
+        include:
+          - mc-version: 1.21
+            java-version: 21
+            unsupported: false
+          - mc-version: 1.21
+            java-version: 22
+            unsupported: false
+          - mc-version: 1.20.2
+            java-version: 17
+            unsupported: false
+          - mc-version: 1.19.2
+            java-version: 17
+            unsupported: false
+          - mc-version: 1.18.2
+            java-version: 17
+            unsupported: false
+          - mc-version: 1.17.1
+            java-version: 17
+            unsupported: false
 
     steps:
       - uses: actions/checkout@v2
@@ -39,12 +54,14 @@ jobs:
           chmod +x ./.github/workflow-files/change-ver.sh
           ./.github/workflow-files/change-ver.sh ${{ matrix.mc-version }}
       - name: Update version of maven file to ${{ github.event.release.tag_name }}
+        if: github.event_name == 'release'
         run: mvn versions:set -DnewVersion=${VER_TAG:1}
         env:
           VER_TAG: ${{ github.event.release.tag_name }}
       - name: Build with Maven
         run: mvn package
       - name: Rename package
+        if: github.event_name == 'release'
         run: |
           mkdir releases
           mv target/BattlebotVerify-${VER_TAG:1}.jar releases/verifyagent-${VER_TAG:1}-mc${MC_VERSION}.jar
@@ -54,6 +71,7 @@ jobs:
           MC_VERSION: ${{ matrix.mc-version }}
           UNSUPPORTED: ${{ matrix.unsupported }}
       - name: Upload packages to release
+        if: github.event_name == 'release'
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.RELEASES_TOKEN }}
