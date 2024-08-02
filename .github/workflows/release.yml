@@ -14,9 +14,13 @@ jobs:
 
     strategy:
       matrix:
-        java-version: [17]
-        mc-version: [1.21, 1.20.2, 1.19.2, 1.18.2, 1.17.1]
-        unsupported: [false]
+        include:
+          - java-version: [17]
+            mc-version: [1.20.2, 1.19.2, 1.18.2, 1.17.1]
+            unsupported: [false]
+          - java-version: [21]
+            mc-version: 1.21
+            unsupported: [false]
 
     steps:
       - uses: actions/checkout@v2
